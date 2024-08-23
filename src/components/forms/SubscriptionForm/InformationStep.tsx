@@ -5,6 +5,8 @@ import { useStepper } from "@/components/ui/stepper";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import FormInput from "@/components/FormInput";
+import PopoverWrapper from "@/components/PopoverWrapper";
+import { InfoIcon } from "lucide-react";
 
 const InformationFormSchema = z.object({
   firstName: z.string().min(2, { message: "Please enter your first name" }),
@@ -63,6 +65,22 @@ export default function InformationStep({
             id="emailAddress"
             form={form}
             className="bg-background"
+            afterLabel={
+              <PopoverWrapper
+                trigger={<InfoIcon className="w-3 h-3" />}
+                side="right"
+                align="start"
+                content={
+                  <div className="text-xs flex flex-col space-y-2">
+                    <p>
+                      This is only in case Square needs to contact you about
+                      anything regarding payment related issues.{" "}
+                    </p>
+                  </div>
+                }
+                customClasses="p-2 max-w-fit"
+              />
+            }
           />
 
           <div className="w-full text-right mt-8">
