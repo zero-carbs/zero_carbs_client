@@ -149,7 +149,6 @@ export default function SubscriptionForm() {
   });
 
   const setInformationValues = (values: any) => {
-    console.log("setInformationValues", values);
     setInfoState(values);
   };
 

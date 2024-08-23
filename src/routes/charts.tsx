@@ -20,7 +20,6 @@ export default function ChartPage() {
   const { data: dbRes, isLoading } = useTanFetch(["chart-data"]);
 
   const { colors: chartColors, grid: gridColor } = getChartColors();
-  console.log("gridColor charts:", gridColor)
 
   if (isLoading || !dbRes?.allTableData) {
     return <ChartSkeleton />;

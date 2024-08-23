@@ -36,7 +36,6 @@ export default function EditPurchaseForm({
   data: PurchaseWithItems;
   closeModal: () => void;
 }) {
-  console.log("data:", data);
   const { toast } = useToast();
   const { data: userSettings } = useTanFetch(["settings"], true);
   const { mutate: trigger, isPending: purchasesLoading } = useTanMutate({
@@ -46,7 +45,6 @@ export default function EditPurchaseForm({
   });
 
   const formattedSources = getFormattedSources(userSettings);
-  console.log("formattedValues:", formattedSources);
 
   const form = useForm<z.infer<typeof editPurchaseFormSchema>>({
     resolver: zodResolver(editPurchaseFormSchema),

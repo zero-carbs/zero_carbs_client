@@ -7,7 +7,6 @@
 
 export const buildDatestamp = (date: Date) => {
   const month = date.getMonth() < 10 ? `0${date.getMonth()}` : date.getMonth();
-  console.log('month', month)
   const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
   const year = date.getFullYear();
 

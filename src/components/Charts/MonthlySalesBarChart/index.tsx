@@ -11,7 +11,6 @@ export default function MonthlySalesBarChart({
   colors: string[];
   gridColor: string;
 }) {
-  console.log('gridColor:', gridColor);
   const months = [
     "January",
     "February",

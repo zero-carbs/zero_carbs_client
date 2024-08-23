@@ -30,10 +30,8 @@ export default function PaymentStep({
       emailAddress: informationValues?.emailAddress,
     });
 
-    console.log("paymentRes 01:", paymentRes);
 
     if (!paymentPending && paymentRes.subscriptionStatus === "ACTIVE") {
-      console.log("paymentRes 02:", paymentRes);
       return navigate("/", { state: { isSubscribed: true } });
     }
   };

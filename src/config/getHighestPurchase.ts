@@ -6,7 +6,6 @@ import {
 import { PurchaseWithItems } from "@/types";
 
 export const getHighestPurchase = (dbData: PurchaseWithItems[]) => {
-  console.log(dbData);
   if (dbData.length < 1) return;
   const purchaseTotalCost = (data: PurchaseWithItems) =>
     data.priceTotal + data.priceShipping + data.priceTax + data.priceFees;

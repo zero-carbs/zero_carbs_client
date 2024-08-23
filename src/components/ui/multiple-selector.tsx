@@ -487,12 +487,9 @@ const MultipleSelector = React.forwardRef<
                                   return;
                                 }
                                 setInputValue("");
-                                  console.log('selected01:', selected)
                                 const newOptions = [...selected, option];
-                                  console.log('selected02:', selected)
                                 setSelected(newOptions);
                                 onChange?.(newOptions);
-                                  console.log('selected03:', selected);
                               }}
                               className={cn(
                                 "!pointer-events-auto",
