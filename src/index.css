@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "DankMono-Regular";
+  src: url("/fonts/DankMono-Regular.ttf");
+}
+
+@font-face {
+  font-family: "DankMono-Italic";
+  src: url("/fonts/DankMono-Italic.ttf");
+}
+
+@layer base {
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 30%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 357.06 100% 71.96%;
+    --destructive-foreground: 0 0% 3.9%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+
+    --radius: 0.5rem;
+
+    --dialog: 0 0% 98%;
+    --success: 120 40% 38%;
+    --surface-0: 0 0% 100%;
+    --flamingo: 0 59% 58%;
+    --table-header: 0 0% 89%;
+    --table-row-even: 0 0% 96%;
+    --table-row-odd: 0 0% 98%;
+    --skeleton: 0 0% 90%;
+  }
+
+  .catppuccin-mocha {
+    --background: 240 21% 12%;
+    --foreground: 226 64% 88%;
+
+    --card: 240 21% 15%;
+    --card-foreground: 225 64% 88%;
+
+    --popover: 240 21% 15%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 240 21% 15%;
+    --primary-foreground: 226 64% 88%;
+
+    --secondary: 23 92% 75%;
+    --secondary-foreground: 189 71% 73%;
+
+    --muted: 233 12% 39%;
+    --muted-foreground: 226 64% 88%;
+
+    --accent: 267 84% 81%;
+    --accent-foreground: 240 21% 12%;
+
+    --destructive: 343 81% 75%;
+    --destructive-foreground: 240 21% 12%;
+
+    --border: 233 12% 39%;
+    --input: 233 12% 39%;
+    --ring: 0 0% 83.1%;
+    --radius: 0.5rem;
+
+    --dialog: 240 21% 15%;
+    --success: 115 54% 76%;
+    --surface-0: 237 16% 23%;
+    --flamingo: 0 59% 88%;
+    --table-header: 240 18% 25%;
+    --table-row-even: 240 21% 15%;
+    --table-row-odd: 240 24% 13%;
+    --skeleton: 237 16% 23%;
+  }
+
+  .dark {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 11%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 11%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 40% 40%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --radius: 0.5rem;
+
+    --dialog: 0 0% 11%;
+    --success: 150 40% 40%;
+    --surface-0: 237 16% 23%;
+    --flamingo: 0 59% 88%;
+
+    --table-header: 0 0% 13%;
+    --table-row-even: 0 0% 12%;
+    --table-row-odd: 0 0% 11%;
+    --skeleton: 0 0% 14.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-primary text-foreground;
+  }
+
+  /* Disable tailwind styles */
+  .no-tw {
+    all: unset !important;
+  }
+}
+
+.cl-page {
+  & p {
+    @apply text-primary-foreground;
+  }
+
+  & button {
+    @apply !border;
+  }
+}
+
+button.cl-accordionTriggerButton {
+  @apply ring-1 ring-flamingo/10 rounded-sm;
+}
+
+button[aria-label="Delete account"] {
+  @apply bg-destructive;
+
+  &:hover {
+    @apply bg-destructive/90;
+  }
+}
