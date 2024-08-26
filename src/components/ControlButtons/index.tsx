@@ -22,7 +22,8 @@ export default function ControlButtons() {
             <Button
               onClick={() => setPurchasesOpen(true)}
               size="sm"
-              className="h-full w-full rounded-sm md:h-auto md:py-2 bg-surface0/30 hover:bg-accent/10"
+              // className="h-full w-full rounded-sm md:h-auto md:py-2 bg-surface0/30 hover:bg-accent/10"
+              className="h-full w-full rounded-sm md:h-auto md:py-2"
             >
               Add Purchase
             </Button>
@@ -38,7 +39,8 @@ export default function ControlButtons() {
             <Button
               onClick={() => setListingsOpen(true)}
               size="sm"
-              className="h-full w-full rounded-sm md:h-auto md:py-2 bg-surface0/30 hover:bg-accent/10"
+              // className="h-full w-full rounded-sm md:h-auto md:py-2 bg-surface0/30 hover:bg-accent/10"
+              className="h-full w-full rounded-sm md:h-auto md:py-2"
             >
               Add Listing
             </Button>

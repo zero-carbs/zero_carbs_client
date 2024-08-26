@@ -52,6 +52,13 @@ export default function NavBar() {
             Settings
           </Link>
         </span>
+        <span className="text-xs flex items-center gap-x-2">
+          &gt;{" "}
+          <Link className="text-xs hover:text-flamingo" to="/help">
+            Help
+          </Link>
+        </span>
+
       </div>
     </div>
   );
