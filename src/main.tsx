@@ -16,6 +16,7 @@ import { ThemeProvider } from "./components/themeProvider.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import SubscribePage from "./routes/subscribe.tsx";
 import * as Sentry from "@sentry/react";
+import HelpPage from "./routes/help.tsx";
 
 const ListingsPage = lazy(() => import("./routes/listings.tsx"));
 const PurchasesPage = lazy(() => import("./routes/purchases.tsx"));
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
         path: "/settings",
         element: <SiteSettingsPage />,
       },
+      {
+        path: "/help",
+        element: <HelpPage />
+      }
     ],
   },
 ]);
