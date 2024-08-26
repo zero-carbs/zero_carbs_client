@@ -15,10 +15,24 @@ import RefreshPuller from "./components/native/RefreshPuller/index.tsx";
 import { ThemeProvider } from "./components/themeProvider.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import SubscribePage from "./routes/subscribe.tsx";
+import * as Sentry from "@sentry/react";
+import HelpPage from "./routes/help.tsx";
 
 const ListingsPage = lazy(() => import("./routes/listings.tsx"));
 const PurchasesPage = lazy(() => import("./routes/purchases.tsx"));
 const ItemsPage = lazy(() => import("./routes/items.tsx"));
+
+Sentry.init({
+  dsn: import.meta.env.VITE_PUBLIC_SENTRY_DSN,
+  integrations: [
+    Sentry.browserTracingIntegration(),
+    Sentry.replayIntegration(),
+  ],
+  tracesSampleRate: 1.0, //  Capture 100% of the transactions
+  tracePropagationTargets: ["localhost", "https://app.zerocarbs.app"],
+  replaysSessionSampleRate: 0.1, // This sets the sample rate at 10%. You may want to change it to 100% while in development and then sample at a lower rate in production.
+  replaysOnErrorSampleRate: 1.0, // If you're not already sampling the entire session, change the sample rate to 100% when sampling sessions where errors occur.
+});
 
 const isLocal = import.meta.env.MODE === "development";
 const CLERK_KEY = isLocal
@@ -83,6 +97,10 @@ const router = createBrowserRouter([
         path: "/settings",
         element: <SiteSettingsPage />,
       },
+      {
+        path: "/help",
+        element: <HelpPage />
+      }
     ],
   },
 ]);
