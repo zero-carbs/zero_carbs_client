@@ -47,7 +47,7 @@ export const useTanFetch = (
         return "unauthorized";
       }
 
-      const res = await fetch("/api/user", {
+      const res = await fetch(`${isLocal ? LOCAL_SERVER : PUBLIC_SERVER}/user`, {
         headers: { Authorization: token },
       });
 
