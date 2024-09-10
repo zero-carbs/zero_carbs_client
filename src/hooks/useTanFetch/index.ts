@@ -31,11 +31,12 @@ export const useTanFetch = (
     ? `${isLocal ? LOCAL_SERVER : PUBLIC_SERVER}/${key[0]}`
     : `${isLocal ? LOCAL_SERVER : PUBLIC_SERVER}/${key[0]}${searchParams.size !== 0 ? "?" : ""}${searchParams.toString()}`;
 
-  // Fetch the user before every request
+  // Fetch the user before a request and cache it for 30 seconds
   const {
     data: userData,
     isSuccess: isUserDataSuccess,
     isError: isUserDataError,
+    isLoading: userIsLoading,
   } = useQuery({
     queryKey: ["user"],
     staleTime: 30 * 1000,
@@ -81,8 +82,8 @@ export const useTanFetch = (
         return "unauthorized";
       }
 
-      if (!isSubscribed) {
-        console.log("death.");
+      if (key[0] === "user" && !userIsLoading && !isSubscribed) {
+        return "unauthorized"
       }
 
       const res = await fetch(url, { headers: { Authorization: token } });
