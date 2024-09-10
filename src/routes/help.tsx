@@ -19,38 +19,36 @@ export default function HelpPage() {
           The questions/answers above are more specific to use of the app. For
           more general questions and info check out the FAQ on the main site.
         </p>
-          <span className="flex gap-x-2">
-        {`>`}<Link
-          to="https://zerocarbs.app/faq"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          https://zerocarbs.app/faq
-        </Link>
-
-          </span>
+        <span className="flex gap-x-2">
+          {`>`}
+          <Link
+            to="https://zerocarbs.app/#faq"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://zerocarbs.app/faq
+          </Link>
+        </span>
       </div>
-        <hr className="my-8"/>
+      <hr className="my-8" />
       <p>
-        Still didn&apos;t find what you were looking for? No problem, click the button
-        below to submit a ticket and I&apos;ll look in to it ASAP.
+        Still didn&apos;t find what you were looking for? No problem, click the
+        button below to submit a ticket and I&apos;ll look in to it ASAP.
       </p>
-        <div className="mt-8 max-w-fit">
-      <DialogWrapper
-        title="Support"
-        description="Submit an issue or feature"
-        setOpen={setSupportOpen}
-        content={<ContactForm closeModal={() => setSupportOpen(false)} />}
-        trigger={
-          <Button onClick={() => setSupportOpen(true)} className="">
-            Submit a ticket
-          </Button>
-
-        }
-        open={supportOpen}
-      />
-
-        </div>
+      <div className="mt-8 max-w-fit">
+        <DialogWrapper
+          title="Support"
+          description="Submit an issue or feature"
+          setOpen={setSupportOpen}
+          content={<ContactForm closeModal={() => setSupportOpen(false)} />}
+          trigger={
+            <Button onClick={() => setSupportOpen(true)} className="">
+              Submit a ticket
+            </Button>
+          }
+          open={supportOpen}
+        />
+      </div>
     </div>
   );
 }
