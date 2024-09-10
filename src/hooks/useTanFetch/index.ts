@@ -83,7 +83,6 @@ export const useTanFetch = (
       }
 
       if (key[0] === "user" && !userIsLoading && !isSubscribed) {
-        console.log('death.')
         return "unauthorized"
       }
 
