@@ -2,6 +2,10 @@ import { calculateProfitMargin, price } from "@/lib/utils";
 import { PurchaseWithItems } from "@/types";
 
 export const getHighestPurchase = (dbData: PurchaseWithItems[]) => {
+  if (!dbData) {
+    return null
+  }
+
   const hasSoldItem = dbData.filter((purchase) => purchase.soldTotals > 0);
 
   if (hasSoldItem.length === 0) {
