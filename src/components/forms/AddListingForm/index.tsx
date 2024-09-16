@@ -49,7 +49,7 @@ export default function AddListingForm({
   const { toast } = useToast();
   const { mutateAsync: listingsMutate, isPending: postLoading } = useTanMutate({
     key: "listings",
-    reval: ["listings", "chart-data"],
+    reval: ["listings", "chart-data", "purchases"],
   });
 
   const { data: allItems, isLoading } = useTanFetch(["all-items"], true);
