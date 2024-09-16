@@ -12,7 +12,7 @@ import { ListingWithItems, PurchaseWithItems } from "@/types";
 import { getMoneyCardData } from "@/components/Charts/chartUtils/moneyCardData";
 import { getPurchaseCardData } from "@/components/Charts/chartUtils/getPurchaseCardData";
 import ChartSkeleton from "@/components/Skeletons/ChartSkeleton";
-// import HighestSoldItem from "@/components/Charts/HighestSoldItem";
+import HighestSoldItem from "@/components/Charts/HighestSoldItem";
 import HighestPurchaseCard from "@/components/Charts/HighestPurchaseCard";
 import { useTanFetch } from "@/hooks/useTanFetch";
 
@@ -75,11 +75,11 @@ export default function ChartPage() {
 
       <div className="col-span-3 flex md:col-span-4">
         <div className="flex grow gap-4">
-          {/* <HighestSoldItem */}
-          {/*   dbPurchaseData={dbPurchaseData} */}
-          {/*   dbListingData={dbListingData} */}
-          {/*   dbAllItems={dbAllItems} */}
-          {/* /> */}
+          <HighestSoldItem
+            dbPurchaseData={dbPurchaseData}
+            dbListingData={dbListingData}
+            dbAllItems={dbAllItems}
+          />
           <HighestPurchaseCard dbPurchaseData={dbPurchaseData} />
         </div>
       </div>

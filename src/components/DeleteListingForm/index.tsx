@@ -12,14 +12,21 @@ type FFF =
       data: ListingWithItems;
       type: "listings";
       setOpen: (value: boolean) => void;
+      allowDelete?: boolean;
     }
   | {
       data: PurchaseWithItems;
       type: "purchases";
       setOpen: (value: boolean) => void;
+      allowDelete?: boolean;
     };
 
-export default function DeleteListingForm({ data, type, setOpen }: FFF) {
+export default function DeleteListingForm({
+  data,
+  type,
+  setOpen,
+  allowDelete,
+}: FFF) {
   const { toast } = useToast();
   const { mutate: trigger, isPending: deleteLoading } = useTanMutate({
     key: type,
@@ -42,11 +49,13 @@ export default function DeleteListingForm({ data, type, setOpen }: FFF) {
   return (
     <>
       {type !== "purchases" && (
-        <h3>{`Are you sure you want to delete this ${type}?`}</h3>
+        <p>{`Are you sure you want to delete this ${type.substring(0, type.length - 1)}?`}</p>
       )}
       {type === "purchases" && (
         <p className="">
-          This will also delete any items associated with this purchase.
+          {allowDelete
+            ? "This will also delete any items associated with this purchase."
+            : "This purchase has active listings. You must delete the listings first."}
         </p>
       )}
 
@@ -60,6 +69,7 @@ export default function DeleteListingForm({ data, type, setOpen }: FFF) {
           loading={deleteLoading}
           variant="destructive"
           onClick={onDelete}
+          disabled={!allowDelete}
         />
       </div>
     </>
