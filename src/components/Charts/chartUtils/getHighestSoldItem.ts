@@ -13,6 +13,10 @@ export const getHighestSoldItem = ({
   dbAllItems: DbItemSelect[];
   dbPurchaseData: DbPurchaseSelect[];
 }) => {
+  if (!dbListingData.length || !dbPurchaseData.length || !dbAllItems.length) {
+    return false;
+  }
+
   const hasSoldItem = dbListingData.filter(
     (listing: DbListingSelect) => listing.listingSold === true,
   );

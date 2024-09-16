@@ -27,6 +27,13 @@ export default function CellEditButton({ data, type }: FFF) {
   const [editOpen, setEditOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
 
+  const dataItems = data.items;
+
+  const allowDelete =
+    type === "listings"
+      ? Boolean(dataItems.filter((i) => i.listingId))
+      : Boolean(dataItems.filter((i) => i.listingId === null).length);
+
   const formToShow = (): React.ReactNode => {
     switch (type) {
       case "purchases":
@@ -103,6 +110,7 @@ export default function CellEditButton({ data, type }: FFF) {
             data={data as any} // Fix this dumb shit
             type={type}
             setOpen={setDeleteOpen}
+            allowDelete={allowDelete}
           />
         }
         trigger={

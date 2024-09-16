@@ -14,11 +14,12 @@ export default function HighestSoldItem({
   dbPurchaseData: PurchaseWithItems[];
   dbAllItems: DbItemSelect[];
 }) {
+  
   const highestSoldItem = getHighestSoldItem({
     dbListingData,
     dbPurchaseData,
     dbAllItems,
-  });
+  }) || null;
 
   const highestSoldItemData = [
     {
